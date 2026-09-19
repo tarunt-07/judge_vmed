@@ -1,0 +1,5 @@
+# Only Vite's content-hashed assets are immutable. HTML keeps Cloudflare's
+# default revalidation so a new deployment is picked up on the next visit.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+  X-Content-Type-Options: nosniff

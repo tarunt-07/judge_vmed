@@ -1,0 +1,7 @@
+;; CNAME records reported by Clerk for judge.vmedithon.co.in (2026-09-14).
+;; Reference only; the existing domains and DNS are managed outside Wrangler.
+clerk.judge.vmedithon.co.in.	1	IN	CNAME	frontend-api.clerk.services.
+accounts.judge.vmedithon.co.in.	1	IN	CNAME	accounts.clerk.services.
+clkmail.judge.vmedithon.co.in.	1	IN	CNAME	mail.qnitezj6e1rc.clerk.services.
+clk._domainkey.judge.vmedithon.co.in.	1	IN	CNAME	dkim1.qnitezj6e1rc.clerk.services.
+clk2._domainkey.judge.vmedithon.co.in.	1	IN	CNAME	dkim2.qnitezj6e1rc.clerk.services.

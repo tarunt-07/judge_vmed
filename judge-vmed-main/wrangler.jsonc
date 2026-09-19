@@ -1,0 +1,34 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "judge",
+  "main": "worker/index.ts",
+  "account_id": "03dec81fd498c48fe0106857fab5a5ea",
+  "compatibility_date": "2026-09-14",
+  "compatibility_flags": ["nodejs_compat"],
+  "minify": true,
+  "preview_urls": false,
+  // Workers Builds runs `npx wrangler versions upload` with no separate build step;
+  // this command produces dist/client and the redirected deploy config first.
+  "build": { "command": "npm run build" },
+  "assets": {
+    "directory": "./dist/client",
+    "not_found_handling": "single-page-application",
+    // Only /api/* reaches the Worker script; everything else is served as static assets.
+    "run_worker_first": ["/api/*"]
+  },
+  "vars": {
+    "INITIAL_ADMIN_EMAIL": "srijan.guchhait@gmail.com",
+    "CLERK_PUBLISHABLE_KEY": "pk_live_Y2xlcmsuanVkZ2Uudm1lZGl0aG9uLmNvLmluJA",
+    // Extra Clerk authorized parties beyond the Worker's own origin (always allowed).
+    "ALLOWED_ORIGINS": ""
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "judge-vmed",
+      "database_id": "5dbabc18-8eb4-45d4-99d5-3f4319d46d19",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "observability": { "enabled": true }
+}
